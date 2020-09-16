@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>quizz gen</title>
+<script>
+let game ={
+questions: [
+{
+qText: "is fortnite good..? ",
+aList:['Yes', 'sure', 'Maybe', 'NO'],
+aCorrect: 'NO'
+},
+{
+qText: "is starcraft 2 good? ",
+aList:['Yes', 'sure', 'Maybe', 'NO'],
+aCorrect: 'NO'
+},
+{
+qText: "joe mama? ",
+aList:['Yes', 'sure', 'Maybe', 'NO'],
+aCorrect: 'Yes'
+},
+],
+createQuestions: function () {
+document.getElementById("answerBox").innerHTML = "";
+let RNGesus = Math.floor(Math.random() * 3)
+document.getElementById("queationBox").innerHTML = game.questions[RNGesus].qText;
+for (let i=0; i < game.questions[RNGesus].aList.Length; i++){
+document.getElementById("answerBox").innerHTML += 
+	`<input type="radio" id="answer${i}" name="selection" value="${game.questions[RNGesus].aList[i]}">
+	<label for="${game.questions[RNGesus].aList[i]}">${game.questions[RNGesus].aList[i]}</label>`
+}
+},
+checkAnswer: function() {
+		for (let i = 0; i < game.questions[RNGesus].aList.length; i++) {if document.getElementById("answer" + i).value == game.questions[RNGesus].aCorrect&& document.getElementById("answer" + i).checked == true)
+}
+}
+}
+</script>
+</head>
+<body onload="">
+<div id="queationBox">
+</div>
+<div id="answerBox">
+</div>
+<div id="responseBox">
+</div>
+<button id="submit" onclick="">submit answer</button>
+</body>
